@@ -1,0 +1,32 @@
+db.createCollection('users')
+db.createCollection('products')
+db.createCollection('orders')
+db.createCollection('payments')
+db.users.insertMany([
+    {'u_id': 100, 'name': 'Indhumathi', 'city': 'Thoothukudi'},
+    {'u_id': 101, 'name': 'Karthikeyan', 'city': 'Tirunelveli'},
+    {'u_id': 102, 'name': 'Karthika', 'city': 'Mannargudi'},
+    {'u_id': 103, 'name': 'Bharath', 'city': 'Pondicherry'},
+    {'u_id': 104, 'name': 'Rajesh', 'city': 'Madurai'}
+])
+db.products.insertMany([
+    {'p_id': 201, 'name': 'Laptop', 'price': 55000, 'category': 'Electronics', 'stock': 25},
+    {'p_id': 202, 'name': 'Smartphone', 'price': 30000, 'category': 'Electronics', 'stock': 50},
+    {'p_id': 203, 'name': 'Refrigerator', 'price': 45000, 'category': 'Appliances', 'stock': 15},
+    {'p_id': 204, 'name': 'Table', 'price': 5000, 'category': 'Furniture', 'stock': 40},
+    {'p_id': 205, 'name': 'Headphones', 'price': 2000, 'category': 'Accessories', 'stock': 100}
+])
+db.payments.insertMany([
+    {'id': 401, 'o_id': 301, 'amount': 55000, 'status': 'Completed', 'method': 'Credit Card'},
+    {'id': 402, 'o_id': 302, 'amount': 60000, 'status': 'Pending', 'method': 'UPI'},
+    {'id': 403, 'o_id': 303, 'amount': 45000, 'status': 'Completed', 'method': 'Net Banking'},
+    {'id': 404, 'o_id': 304, 'amount': 20000, 'status': 'Processing', 'method': 'Debit Card'},
+    {'id': 405, 'o_id': 305, 'amount': 6000, 'status': 'Refunded', 'method': 'Wallet'}
+])
+db.orders.insertMany([
+    {'o_id': 301, 'u_id': 100, 'p_id': 201, 'qty': 1, 'status': 'Shipped'},
+    {'o_id': 302, 'u_id': 101, 'p_id': 202, 'qty': 2, 'status': 'Pending'},
+    {'o_id': 303, 'u_id': 102, 'p_id': 203, 'qty': 1, 'status': 'Delivered'},
+    {'o_id': 304, 'u_id': 103, 'p_id': 204, 'qty': 4, 'status': 'Processing'},
+    {'o_id': 305, 'u_id': 104, 'p_id': 205, 'qty': 3, 'status': 'Cancelled'}
+])
